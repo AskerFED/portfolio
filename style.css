@@ -851,12 +851,20 @@ em { font-family: var(--font-serif); font-style: italic; }
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
   }
-  .tile-intro { grid-column: 1 / 3; }
-  .tile-role  { grid-column: 1 / 2; grid-row: 2 / 3; }
-  .tile-visual{ grid-column: 2 / 3; grid-row: 2 / 3; }
-  .tile-stat  { grid-row: 3 / 4; }
+  .tile-intro {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+  .tile-role {
+    grid-column: 1 / 2;
+    grid-row: span 2;
+  }
+  .tile-stat,
+  .tile-stat:last-child {
+    grid-column: auto;
+    grid-row: auto;
+  }
 
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .skills-bento { grid-template-columns: 1fr 1fr; }
@@ -868,11 +876,17 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 
 @media (max-width: 600px) {
-  .hero { padding-top: 88px; }
+  .container {
+    padding: 0 1.25rem;
+  }
+  .hero {
+    padding-top: 88px;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
   .hero-grid { grid-template-columns: 1fr; }
   .tile-intro { grid-column: 1; }
   .tile-role  { grid-column: 1; grid-row: auto; }
-  .tile-visual{ grid-column: 1; grid-row: auto; min-height: 140px; }
   .tile-stat  { grid-row: auto; }
 
   .skills-bento { grid-template-columns: 1fr; }
@@ -884,6 +898,7 @@ em { font-family: var(--font-serif); font-style: italic; }
   .nav-cta { margin-left: auto; }
 
   .section { padding: 64px 0; }
+  .exp-card { padding: 1.5rem; }
 
   .footer-inner { flex-direction: column; align-items: flex-start; gap: .5rem; }
   .footer-copy { margin-left: 0; }
